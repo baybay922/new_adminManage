@@ -1,0 +1,8 @@
+.theme {
+  width: -webkit-calc(70%);
+  width: calc(70%);
+  height: -webkit-calc(70%);
+  height: calc(70%);
+  overflow-y: auto;
+  margin: 15px auto;
+}

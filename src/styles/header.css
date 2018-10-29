@@ -1,0 +1,91 @@
+/* header base css style */
+.header-warpper {
+  width: 100%;
+  height: 46px;
+  background: #fff;
+  display: -webkit-flex;
+  justify-content: flex-end;
+  z-index: 98;
+  border-bottom: 1px solid #e7eaec;
+}
+.logo-wrapper {
+  margin-left: 20px;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-wrapper .logo-img {
+  width: 60px;
+  height: auto;
+  margin-left: 30px;
+}
+.logo-wrapper .logo-img img {
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+.logo-wrapper .logon-title {
+  font-size: 16px;
+  margin-left: 15px;
+}
+.userInfo,
+.openNews {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+  animation: all .8s linear;
+}
+.userInfo div,
+.openNews div {
+  display: -webkit-box;
+  margin: 0 10px;
+}
+.userInfo p,
+.openNews p {
+  font-size: 12px;
+  color: #5e5e5e;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+.userInfo i,
+.openNews i {
+  font-size: 20px;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  color: #5e5e5e;
+}
+.message {
+  position: relative;
+}
+.message span {
+  position: absolute;
+  left: 15px;
+  top: 7px;
+  width: 20px;
+  height: 15px;
+  background: #f8ac59;
+  border-radius: 3px;
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  line-height: 15px;
+}
+.user span {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.news-list p {
+  color: #2b2b2b;
+}
+.news-list p span {
+  color: red;
+  cursor: pointer;
+}
+.openNews {
+  transform: translateX(-250px);
+}
