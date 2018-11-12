@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>多加后台管理系统</title>
+    <meta name="keywords" content="多加后台管理系统">
+    <meta name="description" content="多加后台管理系统">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="./images/favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="./images/logo.png" /></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">Xiao－yao</strong></span>
+                                <span class="text-muted text-xs block">客服管理员<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            多+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-users"></i>
+                            <span class="nav-label">用户管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">机构<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/allInstitutions.html" target="i">全部机构</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/auditInstitutions.html" target="i">待审核机构</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/auditDoctors.html">待审核机构医生</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">待审核对公账号</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">待审核机构主页</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">医生<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/allDoctor.html">全部医生</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/auditDoctor.html">待审核医生</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">待审核医生主页</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">企业渠道商<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/allChannelB.html">全部企业渠道商</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/auditChannelB.html">待审核企业渠道商</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">待审核对公账号</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">个人渠道商<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/allChannelP.html">全部个人渠道商</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="./pages/users/auditChannelP.html">待审核个人渠道商</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-list-alt"></i>
+                            <span class="nav-label">帐期管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="./pages/users/accountingPeriod.html">审核帐期</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="./pages/users/accountingModify.html">修改帐期</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-reorder"></i>
+                            <span class="nav-label">订单</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">订单列表</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-headphones"></i>
+                            <span class="nav-label">用户反馈</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">投诉管理</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">意见反馈</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-home"></i>
+                            <span class="nav-label">首页</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">展位管理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="">展位模版</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">上架/下架</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">分块列表</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">新展位录入</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">VIP/普通</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">限时拼单</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">热销产品</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">搜索<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="">热搜产品</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">热搜机构</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">热搜医生</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-picture-o"></i>
+                            <span class="nav-label">Banner</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">首页Banner</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">服务页Banner</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">商学院Banner</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-list-alt"></i>
+                            <span class="nav-label">产品管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">待审核产品</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">已上架产品</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">已下架产品</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">新产品资料录入</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">多加产品包装案例列表</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-pencil-square-o"></i>
+                            <span class="nav-label">商学院</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">文章列表<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="">上架/下架</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">写文章</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">文章详情</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">统计</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">用户统计</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">订单统计</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">产品统计</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">活动统计</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-money"></i>
+                            <span class="nav-label">财物工具</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">提现审核</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">财务统计</a>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-money"></i>
+                            <span class="nav-label">市场工具</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">客户管理</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">市场经理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="">创建</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="">市场编号</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-money"></i>
+                            <span class="nav-label">主页装修</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-money"></i>
+                            <span class="nav-label">审核分账</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">待审核分账列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">已审核分账列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">历史分账列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">历史分账详情</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-list-alt"></i>
+                            <span class="nav-label">产品管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">产品列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">新产品资料录入</a>
+                            </li>
+                        </ul>     
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-users"></i>
+                            <span class="nav-label">医生管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">医生列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="">添加医生信息</a>
+                            </li>
+                        </ul>  
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);;">
+                            <i class="fa fa fa-user-md"></i>
+                            <span class="nav-label">账号</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="">我的信息</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <!-- <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form> -->
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-messages">
+                                <li class="m-t-xs">
+                                    <div class="dropdown-messages-box">
+                                        <a href="profile.html" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a7.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <small class="pull-right">46小时前</small>
+                                            <strong>小四</strong> 这个在日本投降书上签字的军官，建国后一定是个不小的干部吧？
+                                            <br>
+                                            <small class="text-muted">3天前 2014.11.8</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+                </button>
+                <nav class="page-tabs J_menuTabs">
+                    <div class="page-tabs-content">
+                        <a href="javascript:;" class="active J_menuTab" data-id="http://www.dogotsn.com">首页</a>
+                    </div>
+                </nav>
+                <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe class="J_iframe" id="J_iframe" name="i" width="100%"  height="100%" src="./pages/users/auditDoctors.html" frameborder="0" data-id="./pages/users/auditDoctors.html" seamless></iframe>
+            </div>
+            <div class="footer">
+                <div class="pull-right">&copy; 2018-2019
+                </div>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/hplus.js?v=4.1.0"></script>
+    <script type="text/javascript" src="js/contabs.js"></script>
+
+    <!-- 第三方插件 -->
+    <script src="js/plugins/pace/pace.min.js"></script>
+</body>
+
+</html>
