@@ -4042,13 +4042,6 @@ code {
 .ibox-content {
     background-color: #ffffff;
     color: inherit;
-    padding: 15px 20px 20px 20px;
-    border-color: #e7eaec;
-    -webkit-border-image: none;
-    -o-border-image: none;
-    border-image: none;
-    border-style: solid solid none;
-    border-width: 1px 0px;
 }
 
 table.table-mail tr td {
@@ -7894,4 +7887,8 @@ body.skin-3 {
         width: 12.5%;
         font-size: 12px
     }
+}
+.simditor{
+    border-color: #e5e6e7;
+    border-radius: 3px;
 }

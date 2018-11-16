@@ -146,13 +146,13 @@ jQuery.examinationRefused = function(that, genre){//审批拒绝
         confirmButtonText: "确定", 
         cancelButtonText: "取消",
         animation: "slide-from-top", 
-        inputPlaceholder: "为啥？到底为啥？" 
+        inputPlaceholder: "不说出个理由今天打死你！？到底不说出个理由今天打死你！？" 
         },
         function(inputValue){ 
         if (inputValue === false) return false; 
             
         if (inputValue === "") { 
-            swal.showInputError("为啥？是因为我不够漂亮么？");
+            swal.showInputError("不说出个理由今天打死你！？是因为我不够漂亮么？");
             return false;
         } 
         $.ajax({

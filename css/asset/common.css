@@ -1,7 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 body{
     height: 100%;
     overflow-y: auto!important;
     background: #fff!important;
+    -webkit-animation: showTheme .8s ease-in-out;
+    -moz-animation: showTheme .8s ease-in-out;
+    animation: showTheme .8s ease-in-out;
 }
 select, input, textarea, button{
     border: none;
@@ -39,25 +47,7 @@ select, input, textarea, button{
     font-size: 14px;
 }
 .name-input{
-    width: 80%;
-}
-.name-input input{
-    display: block;
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.44;
-    color: #555555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-.ibox-content{
-    background: none;
-    border:none;
-    padding: 0;
+    width:395px;
 }
 .lightBoxGallery a{
     width: 100px;
@@ -160,6 +150,30 @@ select, input, textarea, button{
     animation-delay: -0.8s;
 }
 
+@-webkit-keyframes showTheme {
+    0%{
+       opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes showTheme {
+    0%{
+       opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes showTheme {
+    0%{
+       opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 @-webkit-keyframes sk-waveStretchDelay {
     0%,
     40%,
@@ -198,6 +212,7 @@ select, input, textarea, button{
 .swiper-container{
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 .swiper-slide{
     display: -webkit-flex;
@@ -228,4 +243,7 @@ select, input, textarea, button{
     transform: rotate(180deg);
     background: url("../../images/arrow.png") no-repeat center;
     background-size: cover;
+}
+.ibox-content{
+    width: 80%;
 }

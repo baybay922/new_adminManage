@@ -4,14 +4,13 @@
     }
     _init.prototype = {
         data:[],
-        identityCards:[],
         tansfre(){//事件函数
             var that = this;
             that.invoking();
             that.getData(2);
-            $("#tb_departments").on("click", "button#checkInfo",function(){
-                that.checkUersInfo($(this))
-            }) 
+            $("button[name='refresh']").on("click",function(){//刷新页面
+                window.location.reload()
+            })
             $("#tb_departments").on("click", "button#through",function(){//审核通过
                 that.examinationThrough($(this))
             }) 
@@ -19,28 +18,20 @@
                 that.examinationRefused($(this))
             }) 
             //#endregion
-            $("#tb_departments").on("click","a#content",function(){//查看简介
-                var introductions = $(this).attr("dataType");
+            $("#tb_departments").on("click","a#resources",function(){//查看logo
+                var imgUrls = $(this).attr("dataType");
+                $.showImg(imgUrls)
+            })
+            $("#tb_departments").on("click","a#coverImg",function(){//查看环境照片
+                var imgUrls = $(this).attr("dataType");
+                $.showImg(imgUrls)
+            })
+            $("#tb_departments").on("click","a#descInfos",function(){//查看简介
+                var descInfos = $(this).attr("dataType");
                 swal({
-                    title: '',
-                    text: introductions 
+                    title:'',
+                    text:descInfos 
                 })
-            })
-            $("#tb_departments").on("click","a#qualification",function(){//查看医师资格证书
-                var imgUrls = $(this).attr("dataType");
-                $.showImg(imgUrls)
-            })
-            $("#tb_departments").on("click","a#homePages",function(){//查看医师执业证书
-                var imgUrls = $(this).attr("dataType");
-                $.showImg(imgUrls)
-            })
-            $("#tb_departments").on("click","a#honors",function(){//查看荣誉证书
-                var imgUrls = $(this).attr("dataType");
-                $.showImg(imgUrls)
-            })
-            $("#tb_departments").on("click","a#imgUrl",function(){//查看头像
-                var imgUrls = $(this).attr("dataType");
-                $.showImg(imgUrls)
             })
             
         },
@@ -51,12 +42,17 @@
                 showConfirmButton: false 
             })
             var that = this,
-                url = ENV_LIST[0].baseUrl+"/doctor/app/aduit/doctorList"
+                url = ENV_LIST[0].baseUrl+"/product/listpc"
             $.ajax({
-                type:"get",
+                type:"post",
                 url:url,
+                data:JSON.stringify({
+                    "isOnline": 1,
+                    "isOpen": 3
+                }),
                 contentType: "application/json;charset=UTF-8",
                 success:function(res){
+                    console.log(res)
                     $('#tb_departments').bootstrapTable('removeAll');
                     if(res.flag == 20000){
                         $('#tb_departments').bootstrapTable('append', res.data);
@@ -96,50 +92,32 @@
                 showRefresh: true,                  //是否显示刷新按钮
                 minimumCountColumns: 2,             //最少允许的列数 
                 columns:[{
+                        field: "productName",
+                        title: "产品名称"
+                    },{
                         field: "shopName",
-                        title: "医生姓名"
+                        title: "供应商"
                     },{
-                        field: "duty",
-                        title: "职务"
+                        field: "slogn",
+                        title: "产品卖点"
                     },{
-                        field: "workWire",
-                        title: "从医年限"
-                    },{
-                        field: "education",
-                        title: "学历"
-                    },{
-                        field: "content",
-                        title: "医生简介",
+                        field: "descInfos",
+                        title: "产品介绍",
                         align: 'center',
                         valign: 'middle',
                         formatter: that.introduction
                     },{
-                        field: "qualification",
-                        title: "医师资格证书",
+                        field: "resources",
+                        title: "产品照片",
                         align: 'center',
                         valign: 'middle',
-                        formatter: that.qualification
+                        formatter: that.productImg
                     },{
-                        field: "homePages",
-                        title: "医师执业证书",
+                        field: "showUrl",
+                        title: "产品封面图",
                         align: 'center',
                         valign: 'middle',
-                        formatter: that.practice
-                    },{
-                        field: "honors",
-                        title: "荣誉证书",
-                        align: 'center',
-                        valign: 'middle',
-                        formatter: that.honors
-                    },{
-                        field: "imgUrl",
-                        title: "头像",
-                        align: 'center',
-                        valign: 'middle',
-                        formatter: that.portrait
-                    },{
-                        field: "createtime",
-                        title: "地区"
+                        formatter: that.coverImg
                     },{
                         field: "option",
                         title: "操作",
@@ -152,60 +130,41 @@
         },
         actionFormatter(value, row, index){//操作栏的格式化
             var result = "";
-                result += "<button type='button' dataType='"+row.doctorId+"' id='through' class='btn btn-success'><a href='javascript:;'  title='通过'>通过</a></button>";
-                result += "<button type='button' dataType='"+row.doctorId+"' id='refused' class='btn btn-danger'><a href='javascript:;'  title='拒绝'>拒绝</a></button>";
-                result += "<button type='button' dataType='"+row.doctorId+"' id='checkInfo' class='btn btn-info'><a href='javascript:;' title='详情'>详情</a></button>";
+                result += "<button type='button' dataType='"+row.shopId+"' id='through' class='btn btn-success'><a href='javascript:;'  title='通过'>通过</a></button>";
+                result += "<button type='button' dataType='"+row.shopId+"' id='refused' class='btn btn-danger'><a href='javascript:;'  title='拒绝'>拒绝</a></button>";
+                result += "<button type='button' dataType='"+row.shopId+"' id='preview' class='btn btn-primary'><a href='javascript:;'  title='预览'>预览</a></button>";
             return result;
         },
         introduction(value, row, index){//查看简介
             var result = "";
-            if(row.content == null){
+            if(row.descInfos == null){
                 result += "<p>--</p>";
             }else{
-                result += "<a href='javascript:;' dataType='"+row.content+"' id='content' title='查看'>查看</a>";
+                result += "<a href='javascript:;' dataType='"+row.descInfos+"' id='descInfos' title='查看'>查看</a>";
             }
             return result;
         },
-        qualification(value, row, index){//医师资格证书
+        productImg(value, row, index){//产品图片
             var result = "";
-            if(row.qualification == null){
+            if(row.resources == null){
                 result += "<p>--</p>";
             }else{
-                result += "<a href='javascript:;' dataType='"+row.qualification+"' id='qualification' title='查看'>查看</a>";
+                result += "<a href='javascript:;' dataType='"+row.resources+"' id='resources' title='查看'>查看</a>";
             }
             return result;
         },
-        practice(value, row, index){//医师执业证书
+        showUrl(value, row, index){//产品封面
             var result = "";
-            if(row.homePages == null){
+            if(row.coverImg == null){
                 result += "<p>--</p>";
             }else{
-                result += "<a href='javascript:;' dataType='"+row.homePages+"' id='homePages' title='查看'>查看</a>";
-            }
-            return result;
-        },
-        honors(value, row, index){//荣誉证书
-            var result = "";
-            if(row.honors == null){
-                result += "<p>--</p>";
-            }else{
-                result += "<a href='javascript:;' dataType='"+row.honors+"' id='honors' title='查看'>查看</a>";
-            }
-            return result;
-        },
-        portrait(value, row, index){//头像
-            var result = "";
-            if(row.imgUrl == null){
-                result += "<p>--</p>";
-            }else{
-                result += "<a href='javascript:;' dataType='"+row.imgUrl+"' id='imgUrl' title='查看'>查看</a>";
+                result += "<a href='javascript:;' dataType='"+row.coverImg+"' id='coverImg' title='查看'>查看</a>";
             }
             return result;
         },
         examinationThrough(that){
-            var doctorId = that.attr("dataType"),
-                url = ENV_LIST[0].baseUrl+"/doctor/app/aduit/doctor";
-                console.log(doctorId)
+            var shopId = that.attr("dataType"),
+                url = ENV_LIST[0].baseUrl+"/shopInfo/check/decoration";
             swal({ 
                 title: "确定审批通过吗？", 
                 text: "请认真得审核资料信息！", 
@@ -220,9 +179,8 @@
                     type:"post", 
                     url:url,
                     data:JSON.stringify({
-                        "doctorId":""+doctorId+"",
-                        "findAduit":1,
-                        "remark":""
+                        "shopId": ""+shopId+"",
+                        "status": "2"
                     }),
                     contentType: "application/json;charset=UTF-8",
                     dataType:"json",
@@ -259,8 +217,9 @@
             }); 
         },
         examinationRefused(that){
-            var doctorId = that.attr("dataType"),
-                url = ENV_LIST[0].baseUrl+"/doctor/app/aduit/doctor";
+            var shopId = that.attr("dataType"),
+                url = ENV_LIST[0].baseUrl+"/shopInfo/check/decoration";
+                console.log(shopId)
             swal({ 
                 title: "请输入拒绝原因！", 
                 text: "",
@@ -270,26 +229,28 @@
                 confirmButtonText: "确定", 
                 cancelButtonText: "取消",
                 animation: "slide-from-top", 
-                inputPlaceholder: "不说出个理由今天打死你！？到底不说出个理由今天打死你！？" 
+                inputPlaceholder: "不说出个理由今天打死你！" 
                 },
                 function(inputValue){ 
                 if (inputValue === false) return false; 
                     
                 if (inputValue === "") { 
-                    swal.showInputError("不说出个理由今天打死你！？是因为我不够漂亮么？");
+                    swal.showInputError("为什么？是因为我不够漂亮么？");
                     return false;
                 } 
                 $.ajax({
                     type:"post", 
                     url:url,
                     data:JSON.stringify({
-                        "doctorId":doctorId,
-                        "findAduit":2,
-                        "remark":""+inputValue+""
+                        "reason": ""+inputValue+"",
+                        "shopId": ""+shopId+"",
+                        "status": "3"
                     }),
                     contentType: "application/json;charset=UTF-8",
                     dataType:"json",
                     success:function(res){
+                        console.log(res)
+
                         if(res.flag == 20000){
                             swal({
                                 title:"干得漂亮！",

@@ -72,7 +72,7 @@
                                         <a class="J_menuItem" href="">待审核对公账号</a>
                                     </li>
                                     <li>
-                                        <a class="J_menuItem" href="">待审核机构主页</a>
+                                        <a class="J_menuItem" href="./pages/users/auditAgencyHome.html">待审核机构主页</a>
                                     </li>
                                 </ul>
                             </li>
@@ -86,7 +86,7 @@
                                         <a class="J_menuItem" href="./pages/users/auditDoctor.html">待审核医生</a>
                                     </li>
                                     <li>
-                                        <a class="J_menuItem" href="">待审核医生主页</a>
+                                        <a class="J_menuItem" href="./pages/users/auditDoctorHome.html">待审核医生主页</a>
                                     </li>
                                 </ul>
                             </li>
@@ -244,22 +244,22 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="">待审核产品</a>
+                                <a class="J_menuItem" href="./pages/product/auditProduct.html">待审核产品</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="">已上架产品</a>
+                                <a class="J_menuItem" href="./pages/product/onlineShelvesProduct.html">已上架产品</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="">已下架产品</a>
+                                <a class="J_menuItem" href="./pages/product/shelvesProduct.html">已下架产品</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="">新产品资料录入</a>
+                                <a class="J_menuItem" href="./pages/product/entryProduct.html">新产品资料录入</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
@@ -471,7 +471,7 @@
                 <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" id="J_iframe" name="i" width="100%"  height="100%" src="./pages/users/auditDoctors.html" frameborder="0" data-id="./pages/users/auditDoctors.html" seamless></iframe>
+                <iframe class="J_iframe" id="J_iframe" name="i" width="100%"  height="100%" src="./pages/product/entryProduct.html" frameborder="0" data-id="./pages/product/entryProduct.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2018-2019
@@ -494,6 +494,15 @@
 
     <!-- 第三方插件 -->
     <script src="js/plugins/pace/pace.min.js"></script>
+    <script>
+       // 获得权限
+        Notification.requestPermission();
+        // // 点击按钮
+        new Notification("Hi，新的一天", {
+                body: '应该充满力量',
+                icon: ''
+            });
+    </script>
 </body>
 
 </html>

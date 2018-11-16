@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新产品资料录入</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/plugins/webuploader/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="../../css/plugins/simditor/simditor.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/plugins/sweetalert/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" rel="stylesheet" href="../../css/asset/common.css">
+    <link rel="stylesheet" type="text/css" rel="stylesheet" href="../../css/asset/webuploader.css">
+    <link rel="stylesheet" type="text/css" rel="stylesheet" href="../../css/asset/entryProduct.css">
+
+</head>
+<body class="gray-bg">
+    <div class="panel-body" style="padding-bottom:0px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">新产品资料录入</div>
+                <div class="panel-body">
+                    <div class="form-list">
+                        <div class="form-group">
+                            <label class="label-list">供应商：</label>
+                            <div class="name-input">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="input-group" style="width: 400px;">
+                                            <input type="text" class="form-control" id="supplierName">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品名称：</label>
+                            <div class="name-input">
+                                <input type="text" value="" placeholder="请输入产品名称，不能超过20个字" maxlength="20" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品分类：</label>
+                            <div class="name-input product-wrapper" id="product-wrapper">
+                               <div class="select-wrapper">
+                                    <select name="" id="classification" >
+                                        <option value="none">请选择</option>
+                                    </select>
+                               </div>
+                               <div class="select-wrapper">
+                                    <select name="" id="secondary" >
+                                        <option value="none">请选择</option>
+                                    </select>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品卖点：</label>
+                            <div class="name-input">
+                                <input type="text" value="" placeholder="请输入产品卖点，不能超过30个字" maxlength="30" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">主刀医生：</label>
+                            <div class="name-input">
+                                <input type="text" value="" placeholder="请选择主刀医生姓名（选填）" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品标签：</label>
+                            <div class="name-input">
+                                <input type="text" value="" placeholder="请输入标签文字，不能超过8个字" maxlength="8" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">是否公开展示：</label>
+                            <div class="name-input">
+                                <input type="text" value="" placeholder="请输入标签文字，不能超过8个字" maxlength="8" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">列表封面图：</label>
+                            <div class="ibox-content listCover">
+                                <div id="uploader" class="wu-example">
+                                        <!--用来存放文件信息-->
+                                    <div id="coverList" class="uploader-list">
+                                        <ul class="imgList" id="imgListCover">   
+                                        </ul>
+                                        <p class="coverPrompt">
+                                            <span>或将照片拖到这里，最多1张，每张大小限制1M</span>
+                                        </p>
+                                    </div>
+                                    <div class="btns">
+                                        <div class="imgSize"></div>
+                                        <div id="listCover">点击选择照片</div>
+                                    </div>
+                                    </div>                          
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品顶部视频：</label>
+                            <div class="ibox-content videoList">
+                                <div id="uploader" class="wu-example">
+                                        <!--用来存放文件信息-->
+                                    <div id="videoLsit" class="uploader-list">
+                                        <ul class="imgList" id="imgvideoList">   
+                                        </ul>
+                                        <p class="coverPrompt">
+                                            <span>或将视频拖到这里，最多3张，每张大小限制1M</span>
+                                        </p>
+                                    </div>
+                                    <div class="btns">
+                                        <div class="imgSize"></div>
+                                        <div id="videoList">点击选择视频</div>
+                                    </div>
+                                </div>                          
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">视频封面图：</label>
+                            <div class="ibox-content videoCover">
+                                <div id="uploader" class="wu-example">
+                                        <!--用来存放文件信息-->
+                                    <div id="videoListCover" class="uploader-list">
+                                        <ul class="imgList" id="imgvideoCover">   
+                                        </ul>
+                                        <p class="coverPrompt">
+                                            <span>或将照片拖到这里，最多3张，每张大小限制1M</span>
+                                        </p>
+                                    </div>
+                                    <div class="btns">
+                                        <div class="imgSize"></div>
+                                        <div id="videoCover">点击选择照片</div>
+                                    </div>
+                                </div>                          
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品顶部图：</label>
+                            <div class="ibox-content productBanner">
+                                <div id="uploader" class="wu-example">
+                                        <!--用来存放文件信息-->
+                                    <div id="bannerList" class="uploader-list">
+                                        <ul class="imgList" id="bannerImgList">   
+                                        </ul>
+                                        <p class="coverPrompt">
+                                            <span>或将照片拖到这里，最多5张，每张大小限制1M</span>
+                                        </p>
+                                    </div>
+                                    <div class="btns">
+                                        <div class="imgSize"></div>
+                                        <div id="productBanner">点击选择照片</div>
+                                    </div>
+                                </div>                          
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-list">产品介绍：</label>
+                            <div class="ibox-content">
+                                <textarea id="editor" placeholder="这里输入内容" autofocus>   
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+                <button id="submitbtn">提交</button>
+            </div>
+        </div>       
+    </div>
+
+    <!-- 全局js -->
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <!-- 自定义js -->
+    <script src="../../js/content.js?v=1.0.0"></script>
+    <!-- Web Uploader -->
+    <script type="text/javascript">
+        // 添加全局站点信息
+        var BASE_URL = 'js/plugins/webuploader';
+    </script>
+    <script src="../../js/plugins/webuploader/webuploader.min.js"></script>
+    <!-- suggest -->
+    <script type="text/javascript" src="../../js/plugins/suggest/bootstrap-suggest.min.js"></script>
+    <!-- simditor -->
+    <script type="text/javascript" src="../../js/plugins/simditor/module.js"></script>
+    <script type="text/javascript" src="../../js/plugins/simditor/uploader.js"></script>
+    <script type="text/javascript" src="../../js/plugins/simditor/hotkeys.js"></script>
+    <script type="text/javascript" src="../../js/plugins/simditor/simditor.js"></script>
+    <!-- Sweet alert -->
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <!-- Peity -->
+    <script src="../../js/asset/common.js"></script>
+    <script src="../../js/asset/entryProduct.js"></script>
+</body>
+
+</html>
+

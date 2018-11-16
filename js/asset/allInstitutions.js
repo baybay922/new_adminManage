@@ -36,6 +36,7 @@
                     shopType: 'P'
                 }),
                 success:function(res){
+                    
                     $('#tb_departments').bootstrapTable('removeAll');
                     if(res.flag == 20000){
                         $('#tb_departments').bootstrapTable('append', res.data);
@@ -63,7 +64,9 @@
         invoking(){//第三方方法调用
             var that = this;
             $("#tb_departments").bootstrapTable({
-                data:that.data,
+                // data:that.data,
+                url:ENV_LIST[0].baseUrl+"/shop/all/list",
+                method:"POST",
                 pagination: true,                   //是否显示分页（*）
                 striped : true,                     // 是否显示行间隔色
                 sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
